@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Libre Baskerville', serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.btn {
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 40px;
+    border-radius: 5px;
+    background: rgb(0, 220, 110);
+    cursor: pointer;
+    width: 150px;
+}
+
+.short-hr {
+    align-self: center;
+    width: 100%;
+}
+
+.long-hr {
+    align-self: center;
+    width: 200%;
+}
+
+.main {
+    padding: 50px;
+    max-width: 1190px;
+    justify-content: center;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+fieldset {
+    border: none;
+}
+
+.details-form {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.field-lable {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.larg-field {
+    height: 200px;
+}
+
+input,
+select {
+    padding: 10px;
+}
+
+legend {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.box {
+    cursor: pointer;
+}
+
+table {
+    border: 2px solid #888;
+    padding: 10px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 2px solid #888;
+}
+
+.table-num,
+.th {
+    background: rgb(206, 206, 206);
+    text-align: center;
+}
+
+.table-num {
+    width: 10%;
+}
+
+.table-input {
+    border: none;
+    width: 95%;
+    background-color: transparent;
+}
+
+.hear-other {
+    display: none;
+}
+
+.submit {
+    padding: 0 25px;
+}
