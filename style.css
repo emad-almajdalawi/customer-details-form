@@ -73,8 +73,8 @@ fieldset {
     gap: 25px;
 }
 
-.larg-field {
-    height: 200px;
+textarea {
+    padding: 10px;
 }
 
 input,
@@ -87,7 +87,7 @@ legend {
     font-weight: 700;
 }
 
-.box {
+.radio {
     cursor: pointer;
 }
 
@@ -109,6 +109,14 @@ th {
     text-align: center;
 }
 
+.hidden {
+    display: none;
+}
+
+th {
+    padding: 10px;
+}
+
 .table-num {
     width: 10%;
 }
@@ -119,10 +127,10 @@ th {
     background-color: transparent;
 }
 
-.hear-other {
-    display: none;
-}
-
 .submit {
     padding: 0 25px;
+}
+
+.section-error {
+    background: #ffdada70;
 }
