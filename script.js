@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     sectionEle.classList.add('section-error');
                     sectionEle.classList.add('name-error')
                 }
-                else if (!(fName && lName)) {
+                else if ((fName && lName)) {
                     sectionEle.classList.remove('section-error');
                     sectionEle.classList.remove('name-error')
                 }
@@ -194,15 +194,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // validate email
             if (key == 'email') {
-                var regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                if (!(fieldValue[key].match(regex))) {
-                    // console.log(sectionEle)
-                    sectionEle.classList.add('section-error');
-                    sectionEle.classList.add('email-error')
-                }
-                else {
-                    sectionEle.classList.remove('section-error');
-                    sectionEle.classList.remove('email-error')
+                if (fieldValue[key]) {
+                    var regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    if (!(fieldValue[key].match(regex))) {
+                        // console.log(sectionEle)
+                        sectionEle.classList.add('section-error');
+                        sectionEle.classList.add('email-error')
+                    }
+                    else {
+                        sectionEle.classList.remove('section-error');
+                        sectionEle.classList.remove('email-error')
+                    }
                 }
             }
         }
@@ -237,7 +239,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // scroll to the first section with error
     function scrollToEroor() {
         const errorList = document.querySelectorAll('.section-error')
-        errorList[0].scrollIntoView()
+        if (errorList.length != 0) {
+            errorList[0].scrollIntoView()
+        }
     }
 
 
@@ -246,5 +250,15 @@ document.addEventListener('DOMContentLoaded', () => {
         getData();
         validateData()
         scrollToEroor()
+
+        const errorList = document.querySelectorAll('.section-error')
+        if (errorList.length == 0) {
+            // alert thank you img
+            alert('Thak You! Yoursubmission has been received.')
+
+            // reset fields
+            const submitForm = document.querySelector('.details-form');
+            submitForm.reset()
+        }
     });
 });
