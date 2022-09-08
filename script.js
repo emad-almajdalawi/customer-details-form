@@ -144,22 +144,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function validateData() {
-        // let fieldValue = {}
-        // const textInputs = document.querySelectorAll('.field');
-        // for (let i = 0; i < textInputs.length; i++) {
-        //     const key = textInputs[i].dataset.name;
-        //     fieldValue[key] = textInputs[i].value;
-        //     const sectionName = textInputs[i].dataset.section;
-        //     const sectionEle = document.querySelector(`.${sectionName}`);
+        let fieldValue = {}
+        const textInputs = document.querySelectorAll('.field');
+        for (let i = 0; i < textInputs.length; i++) {
+            const key = textInputs[i].dataset.name;
+            fieldValue[key] = textInputs[i].value;
+            const sectionName = textInputs[i].dataset.section;
+            const sectionEle = document.querySelector(`.${sectionName}`);
 
-        //     // validate empty required text inputs
-        //     if (textInputs[i].className.includes('required') && !fieldValue[key]) {
-        //         sectionEle.classList.add('section-error');
-        //     }
-        //     if (textInputs[i].className.includes('required') && fieldValue[key]) {
-        //         sectionEle.classList.remove('section-error');
-        //     }
-        // }
+            // validate empty required text inputs
+            if (textInputs[i].className.includes('required') && !fieldValue[key]) {
+                sectionEle.classList.add('section-error');
+            }
+            if (textInputs[i].className.includes('required') && fieldValue[key]) {
+                sectionEle.classList.remove('section-error');
+            }
+        }
 
         // validate (how did you hear about us) selection
         const selectionList = document.querySelectorAll('.hearSelect')[0]
@@ -174,11 +174,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selection == 'other') {
             const other = document.querySelector('.hear-new').value
             if (!other) {
-                const sectionEle = document.querySelector(`.hear`);
+                const sectionEle = document.querySelector('.hear');
                 sectionEle.classList.add('section-error')
             }
             else sectionEle.classList.remove('section-error')
         }
+
+        //validate radio
+        if (!(myData.yes || myData.no || myData.maybe)) {
+            const sectionEle = document.querySelector('.radio');
+            sectionEle.classList.add('section-error')
+        }
+        else sectionEle.classList.remove('section-error')
     }
 
 

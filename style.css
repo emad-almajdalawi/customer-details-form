@@ -11,6 +11,7 @@ body {
 h1 {
     font-size: 36px;
     font-weight: 700;
+    padding: 10px;
 }
 
 p {
@@ -21,7 +22,7 @@ p {
 .btn {
     color: #fff;
     font-weight: 700;
-    padding: 10px 40px;
+    padding: 12px 45px;
     border-radius: 5px;
     background: rgb(0, 220, 110);
     cursor: pointer;
@@ -52,6 +53,7 @@ p {
 
 fieldset {
     border: none;
+    padding: 10px;
 }
 
 .details-form {
@@ -128,9 +130,14 @@ th {
 }
 
 .submit {
-    padding: 0 25px;
+    padding: 0 50px;
 }
 
 .section-error {
     background: #ffdada70;
+}
+
+.required-section::after {
+    content: ' *';
+    color: red;
 }
