@@ -141,3 +141,18 @@ th {
     content: ' *';
     color: red;
 }
+
+.name-error::after {
+    content: "   Name can not have numbers, spaces, or symbols!";
+    color: red;
+}
+
+.phone-error::after {
+    content: '   Phone number must contain 10 digits!';
+    color: red;
+}
+
+.email-error::after {
+    content: '   email is not valid!';
+    color: red;
+}

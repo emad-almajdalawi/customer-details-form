@@ -159,13 +159,59 @@ document.addEventListener('DOMContentLoaded', () => {
             if (textInputs[i].className.includes('required') && fieldValue[key]) {
                 sectionEle.classList.remove('section-error');
             }
+
+            // validate full name
+            if (key == 'firstName' || key == 'lastName') {
+                var regex = /^[a-zA-Z]{2,30}$/;
+                if (key == 'firstName') {
+                    var fName = fieldValue[key].match(regex)
+                }
+                else var lName = fieldValue[key].match(regex)
+
+                if (!(fName && lName)) {
+                    sectionEle.classList.add('section-error');
+                    sectionEle.classList.add('name-error')
+                }
+                else if (!(fName && lName)) {
+                    sectionEle.classList.remove('section-error');
+                    sectionEle.classList.remove('name-error')
+                }
+            }
+
+
+            // validate phone number
+            if (key == 'phone') {
+                var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                if (!(fieldValue[key].match(phoneno))) {
+                    sectionEle.classList.add('section-error');
+                    sectionEle.classList.add('phone-error')
+                }
+                else {
+                    sectionEle.classList.remove('section-error');
+                    sectionEle.classList.remove('phone-error')
+                }
+            }
+
+            // validate email
+            if (key == 'email') {
+                var regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if (!(fieldValue[key].match(regex))) {
+                    // console.log(sectionEle)
+                    sectionEle.classList.add('section-error');
+                    sectionEle.classList.add('email-error')
+                }
+                else {
+                    sectionEle.classList.remove('section-error');
+                    sectionEle.classList.remove('email-error')
+                }
+            }
         }
 
         // validate (how did you hear about us) selection
         const selectionList = document.querySelectorAll('.hearSelect')[0]
         const selection = selectionList.options[selectionList.selectedIndex].value
         const sectionName = selectionList.dataset.section;
-        const sectionEle = document.querySelector(`.${sectionName}`);
+        var sectionEle = document.querySelector(`.${sectionName}`);
         if (selection == 'none') {
             sectionEle.classList.add('section-error')
         }
@@ -181,11 +227,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         //validate radio
+        sectionEle = document.querySelector('.radio');
         if (!(myData.yes || myData.no || myData.maybe)) {
-            const sectionEle = document.querySelector('.radio');
             sectionEle.classList.add('section-error')
         }
         else sectionEle.classList.remove('section-error')
+    }
+
+    // scroll to the first section with error
+    function scrollToEroor() {
+        const errorList = document.querySelectorAll('.section-error')
+        errorList[0].scrollIntoView()
     }
 
 
@@ -193,5 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         getData();
         validateData()
+        scrollToEroor()
     });
 });

@@ -68,8 +68,8 @@
                 <div>
                     <legend class="required-section">Phone Number</legend>
                     <div class="field-lable form-two-col">
-                        <input type="text" data-name="phone" placeholder="(000) 000-0000" class="field required"
-                            data-section="phone">
+                        <input type="text" data-name="phone" class="field required" data-section="phone"
+                            placeholder="(000) 000-0000">
                     </div>
                 </div>
             </fieldset>
@@ -78,97 +78,99 @@
                     <legend>E-mail</legend>
                     <div class="form-two-col">
                         <div class="field-lable">
-                            <input type="text" data-name="email" placeholder="ex: email@yahoo.com" class="field">
+                            <input type="text" data-name="email" class="field" data-section="email"
+                                placeholder="ex: email@yahoo.com"">
                             <label>example@example.com</label>
                         </div>
                     </div>
                 </div>
             </fieldset>
-            <hr class="short-hr">
-            <fieldset class="hear">
-                <div>
-                    <legend class="required-section">How did you hear about us?</legend>
-                    <div class="form-two-col ">
-                        <div class="field-lable new-field-parent">
-                            <select data-name="hearSelect" class="hearSelect required" data-section="hear">
-                                <option value="none">Please Select</option>
-                                <option value="our-websit">Our websit</option>
-                                <option value="linkedin">LinkedIn</option>
-                                <option value="social-media">Social Media</option>
-                                <option value="friend">Friend</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-            <fieldset class="feedback">
-                <div>
-                    <legend>Feedback about us:</legend>
-                    <div class="field-lable">
-                        <textarea rows="15" cols="50" data-name="feedback" class="field"></textarea>
-                    </div>
-                </div>
-            </fieldset>
-            <fieldset class="suggestions">
-                <div>
-                    <legend>Suggestions if any for further improvement:</legend>
-                    <div class="field-lable">
-                        <textarea rows="15" cols="50" data-name="suggestions" class="field"></textarea>
-                    </div>
-                </div>
-            </fieldset>
-            <fieldset class="radio">
-                <div>
-                    <legend class="required-section">Will you be willing to recommend us?</legend>
-                    <div class="field-lable">
-                        <div>
-                            <input type="radio" id="yes" data-name="yes" class="radio">
-                            <label for="yes">Yes</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="no" data-name="no" class="radio">
-                            <label for="no">No</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="maybe" data-name="maybe" class="radio">
-                            <label for="maybe">Maybe</label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-            <fieldset data-name="references">
-                <div>
-                    <legend>Please give references of any two people whom you feel:</legend>
-                    <div class="field-lable">
-                        <table class="table">
-                            <tr>
-                                <th></th>
-                                <th class="th">Full Name</th>
-                                <th class="th">Address</th>
-                                <th class="th">Contact number</th>
-                            </tr>
-                            <tr class="ref-row">
-                                <td class="table-num">1</td>
-                                <td><input type="text" data-name="rName" class="table-input"></td>
-                                <td><input type="text" data-name="rAddress" class="table-input"></td>
-                                <td><input type="text" data-name="rNumber" class="table-input"></td>
-                            </tr>
+            <hr class=" short-hr">
+                            <fieldset class="hear">
+                                <div>
+                                    <legend class="required-section">How did you hear about us?</legend>
+                                    <div class="form-two-col ">
+                                        <div class="field-lable new-field-parent">
+                                            <select data-name="hearSelect" class="hearSelect required"
+                                                data-section="hear">
+                                                <option value="none">Please Select</option>
+                                                <option value="our-websit">Our websit</option>
+                                                <option value="linkedin">LinkedIn</option>
+                                                <option value="social-media">Social Media</option>
+                                                <option value="friend">Friend</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="feedback">
+                                <div>
+                                    <legend>Feedback about us:</legend>
+                                    <div class="field-lable">
+                                        <textarea rows="15" cols="50" data-name="feedback" class="field"></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="suggestions">
+                                <div>
+                                    <legend>Suggestions if any for further improvement:</legend>
+                                    <div class="field-lable">
+                                        <textarea rows="15" cols="50" data-name="suggestions" class="field"></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="radio">
+                                <div>
+                                    <legend class="required-section">Will you be willing to recommend us?</legend>
+                                    <div class="field-lable">
+                                        <div>
+                                            <input type="radio" id="yes" data-name="yes" class="radio">
+                                            <label for="yes">Yes</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="no" data-name="no" class="radio">
+                                            <label for="no">No</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="maybe" data-name="maybe" class="radio">
+                                            <label for="maybe">Maybe</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset data-name="references">
+                                <div>
+                                    <legend>Please give references of any two people whom you feel:</legend>
+                                    <div class="field-lable">
+                                        <table class="table">
+                                            <tr>
+                                                <th></th>
+                                                <th class="th">Full Name</th>
+                                                <th class="th">Address</th>
+                                                <th class="th">Contact number</th>
+                                            </tr>
+                                            <tr class="ref-row">
+                                                <td class="table-num">1</td>
+                                                <td><input type="text" data-name="rName" class="table-input"></td>
+                                                <td><input type="text" data-name="rAddress" class="table-input"></td>
+                                                <td><input type="text" data-name="rNumber" class="table-input"></td>
+                                            </tr>
 
-                            <tr class="ref-row">
-                                <td class="table-num">2</td>
-                                <td><input type="text" data-name="rName" class="table-input"></td>
-                                <td><input type="text" data-name="rAddress" class="table-input"></td>
-                                <td><input type="text" data-name="rNumber" class="table-input"></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </fieldset>
-            <hr class="long-hr">
-            <div class="submit">
-                <input type="submit" name="Submit" class="btn">
-            </div>
+                                            <tr class="ref-row">
+                                                <td class="table-num">2</td>
+                                                <td><input type="text" data-name="rName" class="table-input"></td>
+                                                <td><input type="text" data-name="rAddress" class="table-input"></td>
+                                                <td><input type="text" data-name="rNumber" class="table-input"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <hr class="long-hr">
+                            <div class="submit">
+                                <input type="submit" name="Submit" class="btn">
+                            </div>
         </form>
     </section>
 
