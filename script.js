@@ -248,17 +248,25 @@ document.addEventListener('DOMContentLoaded', () => {
     submitForm.addEventListener('submit', (e) => {
         e.preventDefault();
         getData();
-        validateData()
+        // validateData()
         scrollToEroor()
 
         const errorList = document.querySelectorAll('.section-error')
         if (errorList.length == 0) {
-            // alert thank you img
-            alert('Thak You! Yoursubmission has been received.')
+            // model box to alert thank you
+            var modal = document.querySelector('.model-box');
+            modal.showModal();
+
+            // close
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.close();
+                }
+            }
 
             // reset fields
             const submitForm = document.querySelector('.details-form');
-            submitForm.reset()
+            submitForm.reset();
         }
     });
 });

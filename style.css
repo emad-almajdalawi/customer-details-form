@@ -156,3 +156,22 @@ th {
     content: '   email is not valid!';
     color: red;
 }
+
+.fa-circle-check {
+    color: green;
+    size: 30px;
+}
+
+.model-box {
+    padding: 40px 80px;
+    text-align: center;
+}
+
+.model-section {
+    padding: 200px 800px;
+}
+
+dialog:modal {
+    top: 35%;
+    left: 35%;
+}
