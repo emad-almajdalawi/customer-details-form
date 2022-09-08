@@ -63,7 +63,7 @@
             <fieldset class="phone">
                 <legend>Phone Number</legend>
                 <div class="field-lable form-two-col">
-                    <input type="text" data-name="phone" placeholder="(000) 000-0000" class="field">
+                    <input type="text" data-name="phone" placeholder="(000) 000-0000" class="field required">
                 </div>
             </fieldset>
             <fieldset class="email">
@@ -80,7 +80,7 @@
                 <legend>How did you hear about us?</legend>
                 <div class="form-two-col ">
                     <div class="field-lable new-field-parent">
-                        <select data-name="hearSelect" class="hearSelect">
+                        <select data-name="hearSelect" class="hearSelect required" data-section="hear">
                             <option value="none">Please Select</option>
                             <option value="our-websit">Our websit</option>
                             <option value="linkedin">LinkedIn</option>
@@ -89,9 +89,6 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
-                    <!-- <div class="hear-other field-lable">
-                        <input type="text">
-                    </div> -->
                 </div>
             </fieldset>
             <fieldset class="feedback">

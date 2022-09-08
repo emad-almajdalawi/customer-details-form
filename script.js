@@ -74,9 +74,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const myData = {};
-    let reference1 = {}
-    let reference2 = {}
-
     const submitForm = document.querySelector('.details-form');
 
     // collect form data
@@ -86,14 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const textInputs = document.querySelectorAll('.field');
         for (let i = 0; i < textInputs.length; i++) {
             const key = textInputs[i].dataset.name;
-            myData[key] = textInputs[i].value;
-
-            // // empty required text inputs
-            // if (textInputs[i].className.includes('required') && !myData[key]) {
-            //     const sectionName = textInputs[i].dataset.section;
-            //     const sectionEle = document.querySelector(`.${sectionName}`);
-            //     sectionEle.classList.add('section-error');
-            // }
+            // hearOther is handeled in "get (how did you hear about us) selection" below
+            if (key != 'hearOther') {
+                myData[key] = textInputs[i].value;
+            }
         }
 
         // get references data
@@ -119,16 +112,27 @@ document.addEventListener('DOMContentLoaded', () => {
             myData[dataAttr] = value
         }
 
+        // get (how did you hear about us) selection
+        const selectionList = document.querySelectorAll('.hearSelect')[0]
+        const selection = selectionList.options[selectionList.selectedIndex].value
+        myData.hearAboutUs = selection
+        if (selection == 'other') {
+            const other = document.querySelector('.hear-new').value
+            myData.hearAboutUs = other
+        }
+
+
         console.log(myData)
     };
 
+    // create new field
     const hearSelectElement = document.querySelector('.hearSelect');
     hearSelectElement.addEventListener('change', (e) => {
         if (e.target.value === 'other') {
             const hearElement = document.createElement('div');
             hearElement.classList.add('hear-other');
             hearElement.classList.add('field-lable');
-            hearElement.innerHTML = `<input type="text" placeholder="how did you hear about us?" data-name="hearOther" class="field hear-new required" data-section="hear-other" >`
+            hearElement.innerHTML = `<input type="text" placeholder="how did you hear about us?" data-name="hearOther" class="field hear-new required" data-section="hear" >`
             const newFieldParent = document.querySelector('.new-field-parent')
             newFieldParent.insertAdjacentElement('afterend', hearElement);
         } else {
@@ -138,8 +142,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+
+    function validateData() {
+        // let fieldValue = {}
+        // const textInputs = document.querySelectorAll('.field');
+        // for (let i = 0; i < textInputs.length; i++) {
+        //     const key = textInputs[i].dataset.name;
+        //     fieldValue[key] = textInputs[i].value;
+        //     const sectionName = textInputs[i].dataset.section;
+        //     const sectionEle = document.querySelector(`.${sectionName}`);
+
+        //     // validate empty required text inputs
+        //     if (textInputs[i].className.includes('required') && !fieldValue[key]) {
+        //         sectionEle.classList.add('section-error');
+        //     }
+        //     if (textInputs[i].className.includes('required') && fieldValue[key]) {
+        //         sectionEle.classList.remove('section-error');
+        //     }
+        // }
+
+        // validate (how did you hear about us) selection
+        const selectionList = document.querySelectorAll('.hearSelect')[0]
+        const selection = selectionList.options[selectionList.selectedIndex].value
+        const sectionName = selectionList.dataset.section;
+        const sectionEle = document.querySelector(`.${sectionName}`);
+        if (selection == 'none') {
+            sectionEle.classList.add('section-error')
+        }
+        else sectionEle.classList.remove('section-error')
+
+        if (selection == 'other') {
+            const other = document.querySelector('.hear-new').value
+            if (!other) {
+                const sectionEle = document.querySelector(`.hear`);
+                sectionEle.classList.add('section-error')
+            }
+            else sectionEle.classList.remove('section-error')
+        }
+    }
+
+
     submitForm.addEventListener('submit', (e) => {
         e.preventDefault();
         getData();
+        validateData()
     });
 });
