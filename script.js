@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitForm.addEventListener('submit', (e) => {
         e.preventDefault();
         getData();
-        // validateData()
+        validateData()
         scrollToEroor()
 
         const errorList = document.querySelectorAll('.section-error')
